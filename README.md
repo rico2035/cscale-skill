@@ -33,26 +33,26 @@ Typical wall clock: **4 to 6 hours** end to end, ~940k Claude tokens, ~8 image g
 ### macOS / Linux / WSL
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ricskolluri/cscale-skill/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/rico2035/cscale-skill/main/install.sh | bash
 ```
 
 ### Windows (PowerShell)
 
 ```powershell
-irm https://raw.githubusercontent.com/ricskolluri/cscale-skill/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/rico2035/cscale-skill/main/install.ps1 | iex
 ```
 
 > **Inspect before piping.** If you prefer to read the installer first (recommended for any `curl | bash` pattern), open `install.sh` / `install.ps1` in this repo, then run it locally:
 >
 > ```bash
-> git clone https://github.com/ricskolluri/cscale-skill.git
+> git clone https://github.com/rico2035/cscale-skill.git
 > cd cscale-skill
 > bash install.sh        # or: powershell ./install.ps1
 > ```
 
 The installer copies the `cscale/` folder into `~/.claude/skills/cscale/`. Once installed, `/cscale` is available in any Claude Code session.
 
-> Hosted at [github.com/ricskolluri/cscale-skill](https://github.com/ricskolluri/cscale-skill). Override the source with `CSCALE_REPO_OWNER` / `CSCALE_REPO_REF` env vars if you maintain a fork.
+> Hosted at [github.com/rico2035/cscale-skill](https://github.com/rico2035/cscale-skill). Override the source with `CSCALE_REPO_OWNER` / `CSCALE_REPO_REF` env vars if you maintain a fork.
 
 ---
 
@@ -226,6 +226,6 @@ Methodology refined at [Novatar.ai](https://novatar.ai) across client engagement
 
 - Work email: [ric@novatar.ai](mailto:ric@novatar.ai)
 - Personal email: [ricskolluri@gmail.com](mailto:ricskolluri@gmail.com)
-- GitHub: [@ricskolluri](https://github.com/ricskolluri)
+- GitHub: [@rico2035](https://github.com/rico2035)
 
 For security issues, see [SECURITY.md](SECURITY.md). For everything else, open a GitHub issue or email above.
