@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231A1F2E'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-size='30' font-weight='700' fill='white'%3EN%3C/text%3E%3C/svg%3E">
+  <title>{{COMPANY_NAME}}: 18-Month Scaling Plan by Novatar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Warm-band brand tokens (sibling pattern to <slug>-proposal.html) ===== */
+    :root {
+      --ink: #0E1117; --charcoal: #1A1F2E; --muted: #5B6172;
+      --paper: #FAFAF7; --paper-2: #F4F2EC; --surface: #FFFFFF;
+      --line: #E5E3DD; --line-strong: #D5D2CA;
+      --coral: #FF8A5B; --pink: #FF4DB8; --magenta: #C026D3; --purple: #7C3AED;
+      --lemon: #FFD166; --peach: #FFE4D6;
+      --green: #166534; --green-soft: #E7F1EB;
+      --red: #B91C1C; --red-soft: #FCEDED;
+      --amber: #B45309; --amber-soft: #FBF1E2;
+      --warm-band: linear-gradient(135deg, #FF8A5B 0%, #FF4DB8 50%, #C026D3 100%);
+      --warm-band-soft: linear-gradient(135deg, rgba(255,138,91,.12) 0%, rgba(255,77,184,.12) 50%, rgba(192,38,211,.12) 100%);
+      --shadow-soft: 0 1px 2px rgba(15, 17, 23, 0.04), 0 0 0 1px rgba(15, 17, 23, 0.04);
+      --shadow-lift: 0 8px 24px -10px rgba(15, 17, 23, 0.12), 0 0 0 1px rgba(15, 17, 23, 0.06);
+      --shadow-glow: 0 18px 40px -16px rgba(192, 38, 211, 0.40);
+      --radius: 10px; --radius-lg: 16px; --radius-xl: 24px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; }
+    a { color: inherit; }
+    h1, h2, h3, h4 { font-family: 'Inter Tight', 'Inter', sans-serif; letter-spacing: -0.02em; color: var(--charcoal); margin: 0; }
+    .shell { width: min(1180px, calc(100% - 36px)); margin: 0 auto; }
+    .tabular { font-variant-numeric: tabular-nums; }
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+    /* ===== Topbar ===== */
+    .topbar { position: sticky; top: 0; z-index: 30; background: rgba(250, 250, 247, .9); backdrop-filter: saturate(160%) blur(16px); border-bottom: 1px solid var(--line); }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 64px; }
+    .mark { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; color: var(--charcoal); text-decoration: none; }
+    .mark-dot { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 999px; background: var(--charcoal); color: #fff; font-weight: 700; font-size: 14px; }
+    .nav { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; }
+    .nav a { padding: 8px 12px; border-radius: 999px; text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 600; transition: all .15s ease; }
+    .nav a:hover { color: var(--charcoal); background: var(--surface); }
+
+    /* ===== Buttons ===== */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 11px 22px; border-radius: 999px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease; }
+    .btn-primary { color: #fff; background: var(--warm-band); box-shadow: var(--shadow-glow); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 24px 48px -14px rgba(192, 38, 211, 0.55); }
+    .btn-ghost { color: var(--charcoal); background: var(--surface); border-color: var(--line); }
+    .btn-ghost:hover { transform: translateY(-1px); border-color: var(--magenta); color: var(--magenta); }
+    .btn-dark { color: #fff; background: var(--charcoal); }
+    .btn-dark:hover { transform: translateY(-1px); background: #000; }
+
+    /* ===== Hero / Topline ===== */
+    .hero { padding: 64px 0 56px; background: var(--paper-2); border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; right: -10%; top: -30%; width: 540px; height: 540px; border-radius: 50%; background: var(--warm-band); opacity: .12; filter: blur(80px); pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: end; position: relative; z-index: 1; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .18em; color: var(--magenta); margin-bottom: 16px; }
+    .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--warm-band); }
+    .hero h1 { font-size: clamp(32px, 5.4vw, 68px); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; }
+    .hero h1 .grad { background: var(--warm-band); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-sub { margin: 24px 0 0; max-width: 56ch; font-size: 18px; color: #3a3346; line-height: 1.55; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .chip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: rgba(255,255,255,.85); border: 1px solid var(--line); color: var(--charcoal); font-size: 13px; font-weight: 600; }
+    .chip b { color: var(--magenta); font-weight: 700; }
+    .hero-card { background: var(--charcoal); color: #fff; border-radius: var(--radius-xl); padding: 32px; position: relative; overflow: hidden; box-shadow: 0 20px 50px -20px rgba(15, 17, 23, 0.35); }
+    .hero-card::after { content: ""; position: absolute; right: -60px; bottom: -60px; width: 240px; height: 240px; border-radius: 50%; background: var(--warm-band); opacity: .35; filter: blur(40px); }
+    .hero-card > * { position: relative; z-index: 1; }
+    .hero-card .label { color: rgba(255,255,255,.6); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .16em; margin-bottom: 10px; }
+    .hero-card .num { display: block; font-family: 'Inter Tight', sans-serif; font-size: clamp(46px, 6vw, 64px); font-weight: 700; line-height: 1; letter-spacing: -0.02em; color: #fff; font-variant-numeric: tabular-nums; }
+    .hero-card .meta-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+    .hero-card .meta-tile { padding: 14px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); border-radius: 12px; }
+    .hero-card .meta-tile b { display: block; font-family: 'Inter Tight', sans-serif; font-size: 22px; color: #fff; font-weight: 700; line-height: 1; }
+    .hero-card .meta-tile span { display: block; color: rgba(255,255,255,.55); font-size: 11px; margin-top: 6px; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; }
+
+    main { padding: 56px 0 80px; }
+    .section { margin-top: 96px; scroll-margin-top: 96px; }
+    .section:first-child { margin-top: 0; }
+    .section-head { margin-bottom: 36px; max-width: 720px; }
+    .section-kicker { font-family: 'IBM Plex Mono', monospace; color: var(--magenta); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .18em; margin: 0 0 12px; }
+    .section h2 { font-size: clamp(30px, 4.2vw, 48px); line-height: 1.05; font-weight: 700; letter-spacing: -0.025em; }
+    .section h2 .grad { background: var(--warm-band); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .section-note { margin: 16px 0 0; max-width: 58ch; color: var(--muted); font-size: 16px; line-height: 1.6; }
+
+    /* ===== Generic cards/tables ===== */
+    .recall { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; }
+    .recall-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-soft); }
+    .recall-card h3 { margin: 0 0 14px; font-size: 22px; font-weight: 700; }
+    .recall-table { width: 100%; border-collapse: collapse; margin-top: 18px; }
+    .recall-table th, .recall-table td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--line); font-size: 14px; }
+    .recall-table th { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); background: var(--paper); }
+    .recall-table td { font-weight: 600; font-variant-numeric: tabular-nums; }
+    .recall-table tr:last-child td { border-bottom: 0; }
+    .scope-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-soft); }
+    .plan { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .plan-step { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px; }
+    .plan-step .week { display: inline-block; margin-bottom: 14px; padding: 5px 12px; background: var(--charcoal); color: #fff; border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+    .plan-step h3 { margin: 0 0 10px; font-size: 18px; font-weight: 700; }
+    .plan-step p { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+    /* ===== TLDR ladder (cscale-specific) ===== */
+    .tldr-ladder { display: grid; gap: 18px; }
+    .tldr-rung { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 28px 32px; display: grid; grid-template-columns: 140px 1fr 200px; gap: 24px; align-items: center; box-shadow: var(--shadow-soft); position: relative; }
+    .tldr-rung-peer        { border-left: 4px solid var(--green); }
+    .tldr-rung-mid         { border-left: 4px solid var(--amber); }
+    .tldr-rung-aspirational{ border-left: 4px solid var(--magenta); box-shadow: var(--shadow-glow); }
+    .tldr-tier { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    .tldr-rung-peer         .tldr-tier { color: var(--green); }
+    .tldr-rung-mid          .tldr-tier { color: var(--amber); }
+    .tldr-rung-aspirational .tldr-tier { background: var(--warm-band); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .tldr-outcome { font-family: 'Inter Tight', sans-serif; font-size: 20px; font-weight: 700; color: var(--charcoal); line-height: 1.3; }
+    .tldr-where { font-size: 13px; color: var(--muted); margin-top: 6px; }
+    .tldr-months { text-align: right; font-family: 'Inter Tight', sans-serif; font-size: 36px; font-weight: 700; color: var(--charcoal); line-height: 1; font-variant-numeric: tabular-nums; }
+    .tldr-months .unit { display: block; font-size: 11px; font-weight: 500; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: .14em; }
+
+    /* ===== Competitor tier bands (cscale-specific) ===== */
+    .competitor-tier-band { padding: 24px 28px; border-radius: var(--radius-lg); margin-top: 32px; }
+    .competitor-tier-band-peer         { background: var(--green-soft); border-left: 4px solid var(--green); }
+    .competitor-tier-band-mid          { background: var(--amber-soft); border-left: 4px solid var(--amber); }
+    .competitor-tier-band-aspirational { background: var(--warm-band-soft); border-left: 4px solid var(--magenta); }
+    .competitor-tier-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px; gap: 18px; flex-wrap: wrap; }
+    .competitor-tier-head h3 { font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+    .competitor-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .competitor-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-soft); }
+    .competitor-card h4 { font-size: 18px; font-weight: 700; margin: 0 0 8px; }
+    .competitor-card .meta { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0 14px; }
+    .competitor-card .meta span { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 3px 9px; border-radius: 999px; background: var(--paper-2); color: var(--charcoal); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    .competitor-card .row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid var(--line); font-size: 13px; }
+    .competitor-card .row b { color: var(--charcoal); }
+    .competitor-card .row span { color: var(--muted); }
+    .competitor-card .verdict { margin-top: 14px; padding: 12px 14px; background: var(--paper-2); border-radius: var(--radius); font-size: 13px; line-height: 1.5; }
+    .competitor-card .verdict b { display: block; color: var(--charcoal); margin-bottom: 4px; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
+
+    /* ===== Department lanes (cscale-specific) ===== */
+    .dept-lanes { display: grid; gap: 24px; }
+    .dept-lane { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 28px 32px; box-shadow: var(--shadow-soft); }
+    .dept-lane-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px; gap: 18px; flex-wrap: wrap; padding-bottom: 14px; border-bottom: 2px solid var(--paper-2); }
+    .dept-lane-header h3 { font-family: 'Inter Tight', sans-serif; font-size: 24px; font-weight: 700; color: var(--charcoal); }
+    .dept-lane-header .outcome { font-size: 14px; color: var(--muted); font-weight: 500; max-width: 56ch; }
+    .work-item-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .work-item-table th { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding: 12px 10px; text-align: left; border-bottom: 1px solid var(--line); background: var(--paper); }
+    .work-item-table td { padding: 14px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .work-item-table tr:last-child td { border-bottom: 0; }
+    .work-item-table .week-cell { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700; color: var(--magenta); white-space: nowrap; }
+    .work-item-table .item-cell { color: var(--charcoal); font-weight: 600; }
+    .work-item-table .item-cell .desc { display: block; font-weight: 400; color: var(--muted); margin-top: 4px; font-size: 13px; }
+    .work-item-table .owner-cell { font-size: 13px; color: var(--charcoal); white-space: nowrap; }
+    .work-item-table .metric-cell { font-size: 13px; color: var(--charcoal); }
+    .work-item-table .agent-cell { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: var(--magenta); white-space: nowrap; }
+    .dept-sublane { margin-top: 14px; padding: 14px; background: var(--paper); border-radius: var(--radius); border-left: 3px solid var(--magenta); }
+    .dept-sublane summary { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--charcoal); cursor: pointer; padding: 4px 0; }
+
+    /* ===== AI overlay matrix (cscale-specific) ===== */
+    .ai-overlay-wrap { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; align-items: start; }
+    .ai-overlay-matrix { display: grid; grid-template-columns: 140px repeat(10, 1fr); gap: 2px; background: var(--line); border-radius: var(--radius); overflow: hidden; }
+    .matrix-corner, .matrix-col-head, .matrix-row-head { background: var(--paper); padding: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-align: center; }
+    .matrix-row-head { text-align: left; padding-left: 12px; }
+    .matrix-cell { aspect-ratio: 1 / 1; background: var(--surface); position: relative; }
+    .matrix-cell[data-agent="cloe"]    { background: var(--coral); }
+    .matrix-cell[data-agent="maya"]    { background: var(--pink); }
+    .matrix-cell[data-agent="sam"]     { background: var(--magenta); }
+    .matrix-cell[data-agent="jessica"] { background: var(--lemon); }
+    .matrix-cell[data-agent="other"]   { background: var(--peach); }
+    .matrix-cell[data-agent="none"]    { background: var(--paper-2); }
+    .ai-overlay-table { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-soft); }
+    .ai-overlay-table table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .ai-overlay-table th, .ai-overlay-table td { padding: 10px 8px; text-align: left; border-bottom: 1px solid var(--line); }
+    .ai-overlay-table th { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+    .ai-overlay-table td.dollar { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--green); text-align: right; }
+
+    /* ===== Bonus blocks (cscale-specific) ===== */
+    .bonus-block { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-soft); }
+    .bonus-block .bonus-tag { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; background: var(--warm-band-soft); color: var(--magenta); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px; }
+    .pivot-grid, .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 22px; }
+    .pivot-card, .product-card { padding: 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
+    .pivot-card h4, .product-card h4 { font-size: 18px; font-weight: 700; margin: 0 0 10px; color: var(--charcoal); }
+    .pivot-card .trigger, .product-card .price { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: var(--magenta); text-transform: uppercase; letter-spacing: .14em; margin-bottom: 12px; }
+    .pivot-card ul, .product-card ul { margin: 12px 0 0; padding-left: 18px; font-size: 13px; color: var(--muted); }
+    .pivot-card ul li, .product-card ul li { margin: 6px 0; }
+    .retarget-table, .investor-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 22px; }
+    .retarget-table th, .retarget-table td, .investor-table th, .investor-table td { padding: 14px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .retarget-table th, .investor-table th { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); background: var(--paper); }
+    .retarget-table td.play, .investor-table td.fund { font-weight: 700; color: var(--charcoal); }
+
+    /* ===== Timeline ===== */
+    .timeline-30-60-90 { margin-top: 22px; }
+    .svg-chart { width: 100%; height: auto; display: block; }
+
+    /* ===== Risks ===== */
+    .risk-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 24px; }
+    .risk-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .risk-table th, .risk-table td { padding: 12px 10px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .risk-table th { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); background: var(--paper); }
+    .risk-table .lik-high   { color: var(--red); font-weight: 700; }
+    .risk-table .lik-med    { color: var(--amber); font-weight: 700; }
+    .risk-table .lik-low    { color: var(--green); font-weight: 700; }
+    .deps-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-soft); }
+    .deps-card h4 { font-size: 16px; font-weight: 700; margin: 0 0 12px; }
+    .deps-card ul { margin: 0; padding-left: 18px; font-size: 13px; color: var(--charcoal); }
+    .deps-card ul li { margin: 8px 0; }
+
+    /* ===== Close CTA ===== */
+    .close-cta { background: var(--charcoal); color: #fff; border-radius: var(--radius-xl); padding: 56px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; position: relative; overflow: hidden; box-shadow: 0 30px 70px -30px rgba(15, 17, 23, 0.40); }
+    .close-cta::after { content: ""; position: absolute; right: -100px; top: -100px; width: 360px; height: 360px; border-radius: 50%; background: var(--warm-band); opacity: .35; filter: blur(60px); }
+    .close-cta > * { position: relative; z-index: 1; }
+    .close-cta h2 { color: #fff; font-size: clamp(28px, 3.6vw, 42px); margin-bottom: 18px; line-height: 1.1; }
+    .close-cta h2 .grad { background: var(--warm-band); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .close-cta p { color: rgba(255,255,255,.8); font-size: 17px; line-height: 1.6; margin: 0 0 24px; max-width: 48ch; }
+    .close-cta .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .close-cta .btn-primary { background: var(--warm-band); }
+    .close-cta .btn-ghost { background: rgba(255,255,255,.08); color: #fff; border-color: rgba(255,255,255,.2); }
+    .close-cta .btn-ghost:hover { background: rgba(255,255,255,.15); border-color: #fff; }
+    .close-cta-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); border-radius: var(--radius-lg); padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+    .close-cta-card .label { color: rgba(255,255,255,.6); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .16em; }
+
+    /* ===== Image fallback ===== */
+    body.no-images .skill-image, body.no-images .tldr-image, body.no-images .thesis-image, body.no-images .bonus-image { display: none; }
+    .thesis-image, .skill-image, .bonus-image { width: 100%; height: auto; border-radius: var(--radius-lg); display: block; box-shadow: var(--shadow-soft); }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; margin-top: 80px; color: var(--muted); font-size: 13px; }
+    footer .shell { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; align-items: center; }
+    footer a { color: var(--magenta); text-decoration: none; font-weight: 600; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 940px) {
+      .hero-grid, .recall, .close-cta, .ai-overlay-wrap, .risk-grid, .competitor-cards { grid-template-columns: 1fr; }
+      .tldr-rung { grid-template-columns: 1fr; gap: 12px; }
+      .tldr-months { text-align: left; }
+      .plan { grid-template-columns: 1fr 1fr; }
+      .ai-overlay-matrix { grid-template-columns: 100px repeat(10, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .shell { width: calc(100% - 24px); }
+      .topbar-inner { flex-direction: column; align-items: stretch; gap: 12px; padding: 14px 0; }
+      .nav { justify-content: center; }
+      .close-cta { padding: 36px 28px; }
+      .plan { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Sticky topbar with anchor nav ===== -->
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="mark" href="#topline">
+        <span class="mark-dot">N</span>
+        <span>{{COMPANY_NAME}} <span style="color: var(--muted); font-weight: 500;">by Novatar</span></span>
+      </a>
+      <nav class="nav">
+        <a href="#tldr-ladder">TLDR</a>
+        <a href="#current-state">Now</a>
+        <a href="#competitor-map">Competitors</a>
+        <a href="#thesis">Thesis</a>
+        <a href="#departments">Departments</a>
+        <a href="#ai-overlay">AI</a>
+        <a href="#bonus-pivots">Pivots</a>
+        <a href="#bonus-investors">Investors</a>
+        <a href="#cta">Kickoff</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== SECTION 1: Topline + verdict bar.
+       Inject from phase1-context.json + phase4-summary.json.
+       Required placeholders: COMPANY_NAME, REPORT_DATE, VERTICAL_LABEL, GEO_LABEL,
+       ONE_LINE_THESIS, HEADLINE_METRIC_1/2/3_LABEL+VALUE+DELTA. ===== -->
+  <section id="topline" class="hero">
+    <div class="shell">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">{{VERTICAL_LABEL}} · {{GEO_LABEL}} · 18-month plan</div>
+          <h1>How <span class="grad">{{COMPANY_NAME}}</span> gets to the next altitude.</h1>
+          <p class="hero-sub">{{ONE_LINE_THESIS}}</p>
+          <div class="hero-meta">
+            <span class="chip">Prepared <b>{{REPORT_DATE}}</b></span>
+            <span class="chip">Engagement <b>{{ENGAGEMENT_STATUS}}</b></span>
+            <span class="chip">Confidential</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="label">{{HEADLINE_METRIC_1_LABEL}}</div>
+          <span class="num">{{HEADLINE_METRIC_1_VALUE}}</span>
+          <div class="meta-row">
+            <div class="meta-tile">
+              <b>{{HEADLINE_METRIC_2_VALUE}}</b>
+              <span>{{HEADLINE_METRIC_2_LABEL}}</span>
+            </div>
+            <div class="meta-tile">
+              <b>{{HEADLINE_METRIC_3_VALUE}}</b>
+              <span>{{HEADLINE_METRIC_3_LABEL}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="shell">
+
+    <!-- ===== SECTION 2: TLDR ladder.
+         Inject 3 rungs from phase4-summary.json. ===== -->
+    <section id="tldr-ladder" class="section">
+      <div class="section-head">
+        <p class="section-kicker">02. TLDR ladder</p>
+        <h2>Three rungs. <span class="grad">Where you are. Where you go.</span></h2>
+        <p class="section-note">Peer tier is where the company sits today. Mid-tier is the 6 to 12 month target. Aspirational is the 12 to 18 month ceiling.</p>
+      </div>
+      <div class="tldr-ladder">
+        <div class="tldr-rung tldr-rung-peer">
+          <div>
+            <div class="tldr-tier">Peer tier</div>
+            <div class="tldr-where">{{TLDR_PEER_WHERE}}</div>
+          </div>
+          <div class="tldr-outcome">{{TLDR_PEER_OUTCOME}}</div>
+          <div class="tldr-months">{{TLDR_PEER_MONTHS}}<span class="unit">months</span></div>
+        </div>
+        <div class="tldr-rung tldr-rung-mid">
+          <div>
+            <div class="tldr-tier">Mid-tier</div>
+            <div class="tldr-where">{{TLDR_MID_WHERE}}</div>
+          </div>
+          <div class="tldr-outcome">{{TLDR_MID_OUTCOME}}</div>
+          <div class="tldr-months">{{TLDR_MID_MONTHS}}<span class="unit">months</span></div>
+        </div>
+        <div class="tldr-rung tldr-rung-aspirational">
+          <div>
+            <div class="tldr-tier">Aspirational</div>
+            <div class="tldr-where">{{TLDR_ASP_WHERE}}</div>
+          </div>
+          <div class="tldr-outcome">{{TLDR_ASP_OUTCOME}}</div>
+          <div class="tldr-months">{{TLDR_ASP_MONTHS}}<span class="unit">months</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 3: Where the company is today.
+         Inject from phase1-context.json. Includes biggest-leak callout citing prior audit if present. ===== -->
+    <section id="current-state" class="section">
+      <div class="section-head">
+        <p class="section-kicker">03. Today</p>
+        <h2>Where you are right now.</h2>
+        <p class="section-note">{{CURRENT_STATE_NOTE}}</p>
+      </div>
+      <div class="recall">
+        <div class="recall-card">
+          <h3>Channel mix and topline</h3>
+          <table class="recall-table">
+            <thead><tr><th>Channel</th><th>Share</th></tr></thead>
+            <tbody>{{CURRENT_CHANNEL_ROWS}}</tbody>
+          </table>
+        </div>
+        <div class="recall-card" style="background: var(--paper-2); border-left: 4px solid var(--red);">
+          <h3>Biggest leak</h3>
+          <div style="font-family: 'Inter Tight', sans-serif; font-size: 38px; font-weight: 800; color: var(--red); line-height: 1; margin: 12px 0 8px; font-variant-numeric: tabular-nums;">{{BIGGEST_LEAK_VALUE}}/mo</div>
+          <p style="margin: 0; color: var(--muted); font-size: 14px;">{{BIGGEST_LEAK_NAME}}</p>
+          <p style="margin: 14px 0 0; font-size: 12px; color: var(--muted);">Source: <a href="{{BIGGEST_LEAK_SOURCE}}" style="color: var(--magenta);">prior audit</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 4: Tiered competitor map.
+         Inject 3 tier bands. Per band, 1 or 2 competitor cards from phase2-competitors/*.json. ===== -->
+    <section id="competitor-map" class="section">
+      <div class="section-head">
+        <p class="section-kicker">04. Competitor map</p>
+        <h2>Five to six competitors. <span class="grad">Three altitudes.</span></h2>
+        <p class="section-note">Peer tier sits where you sit. Mid-tier is the 3 to 5x ahead band. Aspirational is the 10x or more ceiling, often funded.</p>
+      </div>
+      <div class="competitor-tier-band competitor-tier-band-peer">
+        <div class="competitor-tier-head">
+          <h3>Peer tier · same altitude</h3>
+          <span style="font-size: 13px; color: var(--green); font-weight: 600;">{{PEER_TIER_NOTE}}</span>
+        </div>
+        <div class="competitor-cards">{{PEER_COMPETITOR_CARDS}}</div>
+      </div>
+      <div class="competitor-tier-band competitor-tier-band-mid">
+        <div class="competitor-tier-head">
+          <h3>Mid-tier · 6 to 12 month target</h3>
+          <span style="font-size: 13px; color: var(--amber); font-weight: 600;">{{MID_TIER_NOTE}}</span>
+        </div>
+        <div class="competitor-cards">{{MID_COMPETITOR_CARDS}}</div>
+      </div>
+      <div class="competitor-tier-band competitor-tier-band-aspirational">
+        <div class="competitor-tier-head">
+          <h3>Aspirational · 12 to 18 month ceiling</h3>
+          <span style="font-size: 13px; color: var(--magenta); font-weight: 600;">{{ASP_TIER_NOTE}}</span>
+        </div>
+        <div class="competitor-cards">{{ASP_COMPETITOR_CARDS}}</div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 5: The 18-month thesis.
+         Single paragraph. Image to the right per /images.md. ===== -->
+    <section id="thesis" class="section">
+      <div class="section-head">
+        <p class="section-kicker">05. Thesis</p>
+        <h2>The 18-month thesis.</h2>
+      </div>
+      <div class="recall">
+        <div class="scope-card">
+          <p style="font-size: 18px; line-height: 1.6; color: var(--charcoal); margin: 0;">{{THESIS_PARAGRAPH}}</p>
+        </div>
+        <div>
+          <img class="thesis-image" src="/images/cscale/{{SLUG}}/hero-thesis.png" alt="{{THESIS_IMAGE_ALT}}">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 6: Department-by-department plan.
+         10 lanes. Inject one .dept-lane per department. Marketing rolls up 7 sub-lanes inside. ===== -->
+    <section id="departments" class="section">
+      <div class="section-head">
+        <p class="section-kicker">06. Departments</p>
+        <h2>Ten lanes. <span class="grad">78 weeks. One report.</span></h2>
+        <p class="section-note">Every work item names the owner role, success metric, and which Novatar AI agent plugs in. Minimum four items per lane.</p>
+      </div>
+      <div class="dept-lanes">
+        {{DEPARTMENT_LANES}}
+      </div>
+    </section>
+
+    <!-- ===== SECTION 7: Novatar AI optimization layer.
+         Matrix heatmap on the left, dollar-impact table on the right. ===== -->
+    <section id="ai-overlay" class="section">
+      <div class="section-head">
+        <p class="section-kicker">07. AI overlay</p>
+        <h2><span class="grad">Where Novatar AI</span> plugs into every lane.</h2>
+        <p class="section-note">Cell color shows which agent owns the work that week. Dollar column shows the 18-month impact per agent.</p>
+      </div>
+      <div class="ai-overlay-wrap">
+        <div class="ai-overlay-matrix">
+          {{AI_MATRIX_CELLS}}
+        </div>
+        <div class="ai-overlay-table">
+          <table>
+            <thead>
+              <tr><th>Agent</th><th>First wk</th><th>Last wk</th><th style="text-align:right;">18mo impact</th></tr>
+            </thead>
+            <tbody>
+              {{AI_OVERLAY_ROWS}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 8: Bonus 1. Pivot scenarios. 3 cards. ===== -->
+    <section id="bonus-pivots" class="section">
+      <div class="bonus-block">
+        <span class="bonus-tag">Bonus 01 · pivot scenarios</span>
+        <h2 style="font-size: 32px;">If the thesis stalls.</h2>
+        <p class="section-note">Three branch points, not abandonments. Frame as optionality.</p>
+        <div class="pivot-grid">
+          {{PIVOT_CARDS}}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 9: Bonus 2. Expansion products to existing customers. 5 cards. ===== -->
+    <section id="bonus-expansion" class="section">
+      <div class="bonus-block">
+        <span class="bonus-tag">Bonus 02 · expansion products</span>
+        <h2 style="font-size: 32px;">Sell more to who you already have.</h2>
+        <p class="section-note">Five product or service-line extensions, each with TAM math and the Novatar agent that makes it deliverable.</p>
+        <div class="product-grid">
+          {{EXPANSION_PRODUCT_CARDS}}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 10: Bonus 3. Retargeting + re-engagement. 5-row table. ===== -->
+    <section id="bonus-retargeting" class="section">
+      <div class="bonus-block">
+        <span class="bonus-tag">Bonus 03 · retargeting + re-engagement</span>
+        <h2 style="font-size: 32px;">Five plays for leads you already paid for.</h2>
+        <p class="section-note">Funnel-stage-based. Each play has a trigger, a message template, a metric, and an owning agent.</p>
+        <table class="retarget-table">
+          <thead><tr><th>Play</th><th>Trigger</th><th>Channel</th><th>Metric</th><th>Agent</th></tr></thead>
+          <tbody>{{RETARGETING_ROWS}}</tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 11: Bonus 4. Investor targets + comparable financials.
+         Min 5 investors, each with at least one comparable round. ===== -->
+    <section id="bonus-investors" class="section">
+      <div class="bonus-block">
+        <span class="bonus-tag">Bonus 04 · investor targets</span>
+        <h2 style="font-size: 32px;">Five plus investors. Comparable rounds shown.</h2>
+        <p class="section-note">Reference data only. Pulled from Crunchbase, PitchBook, press releases, SEC filings. Comparable rounds tie to a competitor in Section 4.</p>
+        <table class="investor-table">
+          <thead><tr><th>Fund / angel</th><th>Stage</th><th>Sector</th><th>Check size</th><th>Comparable in this space</th><th>Partner</th></tr></thead>
+          <tbody>{{INVESTOR_ROWS}}</tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 12: 30 / 60 / 90 day execution. Timeline plus 3 week-block cards. ===== -->
+    <section id="execution-90" class="section">
+      <div class="section-head">
+        <p class="section-kicker">12. First 90 days</p>
+        <h2>What ships in the first three months.</h2>
+      </div>
+      <div class="timeline-30-60-90">
+        {{TIMELINE_SVG}}
+      </div>
+      <div class="plan" style="margin-top: 32px;">
+        <div class="plan-step"><span class="week">Week 1 to 4</span><h3>{{W1_4_TITLE}}</h3><p>{{W1_4_BODY}}</p></div>
+        <div class="plan-step"><span class="week">Week 5 to 8</span><h3>{{W5_8_TITLE}}</h3><p>{{W5_8_BODY}}</p></div>
+        <div class="plan-step"><span class="week">Week 9 to 12</span><h3>{{W9_12_TITLE}}</h3><p>{{W9_12_BODY}}</p></div>
+        <div class="plan-step"><span class="week">Onward</span><h3>{{ONWARD_TITLE}}</h3><p>{{ONWARD_BODY}}</p></div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 13: Risks, dependencies, what would change the plan. ===== -->
+    <section id="risks" class="section">
+      <div class="section-head">
+        <p class="section-kicker">13. Risks and dependencies</p>
+        <h2>What would change the plan.</h2>
+      </div>
+      <div class="risk-grid">
+        <div class="scope-card" style="padding: 0;">
+          <table class="risk-table">
+            <thead><tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation</th><th>Owner</th></tr></thead>
+            <tbody>{{RISK_ROWS}}</tbody>
+          </table>
+        </div>
+        <div class="deps-card">
+          <h4>Dependencies and prerequisites</h4>
+          <ul>{{DEPENDENCY_LIST}}</ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 14: Call to action. Charcoal close card with warm-band accent. ===== -->
+    <section id="cta" class="section">
+      <div class="close-cta">
+        <div>
+          <h2>Ready to <span class="grad">ship week one?</span></h2>
+          <p>Book the 90-minute kickoff. We walk every department lead through their first 30 days. You leave with calendar holds, owner assignments, and the Cloe wiring queued.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://novatar.ai/kickoff?slug={{SLUG}}">Book the kickoff</a>
+            <a class="btn btn-ghost" href="https://novatar.ai/agents">See the agent catalog</a>
+          </div>
+        </div>
+        <div class="close-cta-card">
+          <div class="label">Direct line</div>
+          <p style="color: rgba(255,255,255,.85); font-size: 15px; line-height: 1.55; margin: 0;">{{KICKOFF_NOTE}}</p>
+          <a class="btn btn-primary" style="margin-top: auto;" href="{{KICKOFF_CTA_URL}}">Schedule now</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="shell">
+      <div>Novatar Strategic Planning. Prepared for {{COMPANY_NAME}}. Confidential. Generated {{REPORT_DATE}}.</div>
+      <div><a href="https://novatar.ai">novatar.ai</a></div>
+    </div>
+  </footer>
+
+</body>
+</html>

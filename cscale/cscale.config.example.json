@@ -1,0 +1,57 @@
+{
+  "$schema_note": "Copy this file to ~/.claude/skills/cscale/cscale.config.json and edit. Any field you omit falls back to the default. This file is read by /cscale at render time.",
+
+  "agents": {
+    "$comment": "Map the example AI agent names used in the methodology to your own agent catalog. Keys = example names. Values = your names. If you leave this empty, the example names render as-is.",
+    "Cloe":    "YourReceptionistAgent",
+    "Maya":    "YourSchedulerAgent",
+    "Sam":     "YourQualifiedInboundAgent",
+    "Jessica": "YourReadinessConsultingAgent",
+    "Rio":     "YourReviewsAgent",
+    "Sofia":   "YourWebChatAgent",
+    "Gia":     "YourSmsAgent",
+    "Kai":     "YourDmsAgent",
+    "Theo":    "YourSchedulingAgent",
+    "Ava":     "YourColdDialOutboundAgent"
+  },
+
+  "agent_role_descriptions": {
+    "$comment": "Plain-language one-liners for each of your agents. Used in the AI overlay matrix legend and in section 7 of the report.",
+    "YourReceptionistAgent":         "Answers inbound calls, captures lead, books on the spot or warm-hands to scheduler.",
+    "YourSchedulerAgent":            "Owns calendar and reminders. Handles reschedules and no-show recovery.",
+    "YourQualifiedInboundAgent":     "Qualifies inbound leads before they reach a salesperson.",
+    "YourReadinessConsultingAgent":  "Conducts a 15-minute discovery interview, outputs a custom AI readiness playbook.",
+    "YourReviewsAgent":              "Requests and manages reviews across Google, Yelp, Facebook.",
+    "YourWebChatAgent":              "Live chat on the website. Books appointments, answers FAQs.",
+    "YourSmsAgent":                  "Two-way SMS for opt-in marketing and transactional comms.",
+    "YourDmsAgent":                  "Handles Instagram, Facebook, TikTok DMs.",
+    "YourSchedulingAgent":           "Pure scheduling: pick a time, hold a slot, confirm.",
+    "YourColdDialOutboundAgent":     "Cold outbound calls to a prospect list."
+  },
+
+  "output_paths": {
+    "$comment": "Where rendered reports and images land relative to your project root. Default is the convention used by most Vite/Next.js/Hugo sites that serve a public/ folder.",
+    "html_dir":   "public/r",
+    "image_dir":  "public/images/cscale"
+  },
+
+  "brand": {
+    "$comment": "Optional overrides for the report attribution footer. If unset, defaults are used and the 'Built by Ric S Kolluri at Novatar.ai' attribution is preserved per the MIT license.",
+    "your_company_name": "Your Company",
+    "your_website":      "https://yourcompany.example",
+    "your_cta_book_url": "https://yourcompany.example/kickoff",
+    "your_cta_catalog_url": "https://yourcompany.example/agents"
+  },
+
+  "telemetry": {
+    "$comment": "Local-only run logging. Nothing is sent over the network. Set enabled=false to skip writing entirely.",
+    "enabled": true,
+    "file":    ".claude/cscale-telemetry.json"
+  },
+
+  "image_generation": {
+    "$comment": "Higgsfield settings. If you don't have Higgsfield installed, the skill skips image gen automatically.",
+    "model":      "nano_banana_2",
+    "resolution": "1k"
+  }
+}
