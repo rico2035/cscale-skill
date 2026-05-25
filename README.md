@@ -33,26 +33,26 @@ Typical wall clock: **4 to 6 hours** end to end, ~940k Claude tokens, ~8 image g
 ### macOS / Linux / WSL
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/<OWNER>/cscale-skill/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ricskolluri/cscale-skill/main/install.sh | bash
 ```
 
 ### Windows (PowerShell)
 
 ```powershell
-irm https://raw.githubusercontent.com/<OWNER>/cscale-skill/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/ricskolluri/cscale-skill/main/install.ps1 | iex
 ```
 
 > **Inspect before piping.** If you prefer to read the installer first (recommended for any `curl | bash` pattern), open `install.sh` / `install.ps1` in this repo, then run it locally:
 >
 > ```bash
-> git clone https://github.com/<OWNER>/cscale-skill.git
+> git clone https://github.com/ricskolluri/cscale-skill.git
 > cd cscale-skill
 > bash install.sh        # or: powershell ./install.ps1
 > ```
 
 The installer copies the `cscale/` folder into `~/.claude/skills/cscale/`. Once installed, `/cscale` is available in any Claude Code session.
 
-> **Replace `<OWNER>`** with the GitHub username or org that hosts the published repo (see [TODO before publishing](#todo-before-publishing) below).
+> Hosted at [github.com/ricskolluri/cscale-skill](https://github.com/ricskolluri/cscale-skill). Override the source with `CSCALE_REPO_OWNER` / `CSCALE_REPO_REF` env vars if you maintain a fork.
 
 ---
 
@@ -220,14 +220,12 @@ When contributing:
 
 Methodology refined at [Novatar.ai](https://novatar.ai) across client engagements in 2025 and 2026. The pattern was extracted from a productized $10k+ strategic-scaling deliverable used in sales conversations and retainer expansions.
 
----
+## Contact
 
-## TODO before publishing
+**Ric S Kolluri** — [Novatar.ai](https://novatar.ai)
 
-(For the maintainer publishing this repo for the first time.)
+- Work email: [ric@novatar.ai](mailto:ric@novatar.ai)
+- Personal email: [ricskolluri@gmail.com](mailto:ricskolluri@gmail.com)
+- GitHub: [@ricskolluri](https://github.com/ricskolluri)
 
-- [ ] Replace `<OWNER>` placeholder in the install commands above with the actual GitHub owner/org
-- [ ] Confirm the gstack repo URL in the "Sub-skills" table
-- [ ] Add a screenshot of an example `/cscale` output to this README (optional but recommended)
-- [ ] Confirm `security@novatar.ai` is monitored; otherwise change in SECURITY.md
-- [ ] Tag `v1.0.0` after first push
+For security issues, see [SECURITY.md](SECURITY.md). For everything else, open a GitHub issue or email above.

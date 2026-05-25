@@ -5,8 +5,8 @@
 # Copies the cscale skill into ~/.claude/skills/cscale/ so Claude Code can find it.
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/<OWNER>/cscale-skill/main/install.sh | bash
-#   curl -fsSL https://raw.githubusercontent.com/<OWNER>/cscale-skill/main/install.sh | bash -s -- -y
+#   curl -fsSL https://raw.githubusercontent.com/ricskolluri/cscale-skill/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/ricskolluri/cscale-skill/main/install.sh | bash -s -- -y
 #
 # Local usage (from a cloned checkout):
 #   bash install.sh
@@ -16,7 +16,7 @@
 
 set -euo pipefail
 
-REPO_OWNER="${CSCALE_REPO_OWNER:-<OWNER>}"
+REPO_OWNER="${CSCALE_REPO_OWNER:-ricskolluri}"
 REPO_NAME="${CSCALE_REPO_NAME:-cscale-skill}"
 REPO_REF="${CSCALE_REPO_REF:-main}"
 TARBALL_URL="https://codeload.github.com/${REPO_OWNER}/${REPO_NAME}/tar.gz/${REPO_REF}"

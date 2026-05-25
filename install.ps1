@@ -3,7 +3,7 @@
 # Copies the cscale skill into $HOME\.claude\skills\cscale\ so Claude Code can find it.
 #
 # Usage:
-#   irm https://raw.githubusercontent.com/<OWNER>/cscale-skill/main/install.ps1 | iex
+#   irm https://raw.githubusercontent.com/ricskolluri/cscale-skill/main/install.ps1 | iex
 #
 # Local usage (from a cloned checkout):
 #   powershell -ExecutionPolicy Bypass -File install.ps1
@@ -14,7 +14,7 @@
 [CmdletBinding()]
 param(
     [switch]$Force,
-    [string]$RepoOwner = $(if ($env:CSCALE_REPO_OWNER) { $env:CSCALE_REPO_OWNER } else { '<OWNER>' }),
+    [string]$RepoOwner = $(if ($env:CSCALE_REPO_OWNER) { $env:CSCALE_REPO_OWNER } else { 'ricskolluri' }),
     [string]$RepoName  = $(if ($env:CSCALE_REPO_NAME)  { $env:CSCALE_REPO_NAME }  else { 'cscale-skill' }),
     [string]$RepoRef   = $(if ($env:CSCALE_REPO_REF)   { $env:CSCALE_REPO_REF }   else { 'main' })
 )

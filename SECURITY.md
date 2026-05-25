@@ -23,7 +23,8 @@ If you find a key, token, password, or other credential committed anywhere in th
 For vulnerabilities, sensitive disclosures, or any concern you'd rather not file publicly, email:
 
 ```
-security@novatar.ai
+ric@novatar.ai          (primary)
+ricskolluri@gmail.com   (backup)
 ```
 
 For non-sensitive issues (typos, broken links, doc bugs, missing dependencies), open a public issue on GitHub.
