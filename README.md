@@ -1,4 +1,4 @@
-# /cscale
+# /cscale - Company Scale: how to scale your company 
 
 **Generate a 12-to-18-month company scaling strategy report as a single noindex HTML file, in one Claude Code command.**
 
